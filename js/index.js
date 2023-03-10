@@ -1,5 +1,22 @@
 "use strict";
 
+var keySequence = [];
+var googleUrl = "https://www.google.com";
+
+document.addEventListener("keydown", function(event) {
+  keySequence.push(event.key);
+
+  // Check if the key sequence matches "DIEGO"
+  if (keySequence.join("").toUpperCase() === "DIEGO") {
+    window.location.href = googleUrl;
+  }
+
+  // Reset the key sequence if it's longer than 5 characters
+  if (keySequence.length > 5) {
+    keySequence = [];
+  }
+});
+
 //convert text into numbers for seed
 Math.hash = s => {
     for (var i = 0, h = 9; i < s.length;) h = Math.imul(h ^ s.charCodeAt(i++), 9 ** 9);
